@@ -13,17 +13,24 @@ protocol RegistrationViewProtocol: AnyObject {
 }
 
 /// UI-класс для страницы регистрации техники.
-class RegistrationViewController: UIViewController, RegistrationViewProtocol {
+class RegistrationViewController: UIViewController, RegistrationViewProtocol, ModuleTransitionable {
     
     var presenter: RegistrationPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("VIEW DID LOAD")
         presenter?.viewLoaded()
+        navigationController?.isToolbarHidden = true
     }
     
     func setupInitialState() {
+    }
+    
+    @IBAction func didTapJoinButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func didTapCreateNewButton(_ sender: UIButton) {
+        presenter?.createNewGameButtonTapped()
     }
     
 }

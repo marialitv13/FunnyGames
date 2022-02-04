@@ -12,15 +12,15 @@ enum LaunchInstructor {
     
     static func setupInitialPage() -> LaunchInstructor {
         switch SessionManager.isAuthorized {
-        case false:
-            return .registration
-        default:
+        case true:
             return .main
+        default:
+            return .registration
         }
     }
     
     static func performRegistration() -> RegistrationViewController {
-        return RegistrationModuleConfigurator().configure()
+        return RegistrationModuleConfigurator().configureRegistrationSceen()
     }
-
+    
 }

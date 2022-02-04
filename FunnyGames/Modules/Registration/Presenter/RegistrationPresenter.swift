@@ -9,6 +9,8 @@ import Foundation
 
 protocol RegistrationPresenterProtocol {
     func viewLoaded()
+    func joinButtonTapped()
+    func createNewGameButtonTapped()
 }
 
 class RegistrationPresenter: RegistrationPresenterProtocol {
@@ -18,6 +20,14 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
 
     func viewLoaded() {
         view?.setupInitialState()
+    }
+    
+    func joinButtonTapped() {
+    }
+    
+    func createNewGameButtonTapped() {
+        print("THEREE")
+        router?.showGameCreationScreen()
     }
 
 }

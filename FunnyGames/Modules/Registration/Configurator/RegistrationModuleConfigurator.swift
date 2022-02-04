@@ -9,7 +9,7 @@ import Foundation
 
 class RegistrationModuleConfigurator {
     
-    func configure() -> RegistrationViewController {
+    func configureRegistrationSceen() -> RegistrationViewController {
         let view = RegistrationViewController.controllerFromStoryboard(.registration)
         let presenter = RegistrationPresenter()
         let router = RegistrationRouter()
@@ -18,6 +18,20 @@ class RegistrationModuleConfigurator {
         presenter.router = router
         router.view = view
         view.presenter = presenter
+        router.configurator = self
+        
+        return view
+    }
+    
+    func configureGameCreationScreen() -> GameCreationViewController {
+        let view = GameCreationViewController.controllerFromStoryboard(.registration)
+//        let presenter = RegistrationPresenter()
+//        let router = RegistrationRouter()
+//
+//        presenter.view = view
+//        presenter.router = router
+//        router.view = view
+//        view.presenter = presenter
         
         return view
     }

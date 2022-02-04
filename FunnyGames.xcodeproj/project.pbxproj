@@ -10,7 +10,6 @@
 		21D13F6327A6CE84000D2E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F6227A6CE84000D2E1D /* AppDelegate.swift */; };
 		21D13F6527A6CE84000D2E1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F6427A6CE84000D2E1D /* SceneDelegate.swift */; };
 		21D13F6A27A6CE84000D2E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D13F6827A6CE84000D2E1D /* Main.storyboard */; };
-		21D13F6C27A6CE85000D2E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D13F6B27A6CE85000D2E1D /* Assets.xcassets */; };
 		21D13F6F27A6CE85000D2E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D13F6D27A6CE85000D2E1D /* LaunchScreen.storyboard */; };
 		21D13F7A27A6CF48000D2E1D /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D13F7927A6CF48000D2E1D /* Registration.storyboard */; };
 		21D13F8227A6D212000D2E1D /* LaunchInstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F8127A6D212000D2E1D /* LaunchInstructor.swift */; };
@@ -22,6 +21,9 @@
 		21D13F9827A6D832000D2E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9727A6D832000D2E1D /* ViewController.swift */; };
 		21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9927A6D887000D2E1D /* NSObject.swift */; };
 		21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9C27A6DA39000D2E1D /* Storyboards.swift */; };
+		F0FAA1DC27AD23050095C4E1 /* GameCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */; };
+		F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */; };
+		F0FAA1E127AD4DE40095C4E1 /* GameParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,6 @@
 		21D13F6227A6CE84000D2E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21D13F6427A6CE84000D2E1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		21D13F6927A6CE84000D2E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		21D13F6B27A6CE85000D2E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D13F6E27A6CE85000D2E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21D13F7027A6CE85000D2E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D13F7927A6CF48000D2E1D /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
@@ -42,6 +43,9 @@
 		21D13F9727A6D832000D2E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21D13F9927A6D887000D2E1D /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		21D13F9C27A6DA39000D2E1D /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreationViewController.swift; sourceTree = "<group>"; };
+		F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionable.swift; sourceTree = "<group>"; };
+		F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParameterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,14 +116,6 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		21D13F7F27A6D1C7000D2E1D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				21D13F6B27A6CE85000D2E1D /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		21D13F8027A6D1D2000D2E1D /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,8 +136,9 @@
 		21D13F8B27A6D4AE000D2E1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0FAA1DA27AD22EB0095C4E1 /* GameCreation */,
+				F0FAA1D927AD22E30095C4E1 /* Registration */,
 				21D13F7927A6CF48000D2E1D /* Registration.storyboard */,
-				21D13F8527A6D286000D2E1D /* RegistrationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,9 +170,9 @@
 		21D13F9527A6D81B000D2E1D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F0FAA1DD27AD24290095C4E1 /* Router */,
 				21D13F9B27A6DA23000D2E1D /* Constants */,
 				21D13F8827A6D36E000D2E1D /* Managers */,
-				21D13F7F27A6D1C7000D2E1D /* Resources */,
 				21D13F9627A6D823000D2E1D /* Extensions */,
 			);
 			path = Helper;
@@ -196,6 +193,31 @@
 				21D13F9C27A6DA39000D2E1D /* Storyboards.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F0FAA1D927AD22E30095C4E1 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				21D13F8527A6D286000D2E1D /* RegistrationViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		F0FAA1DA27AD22EB0095C4E1 /* GameCreation */ = {
+			isa = PBXGroup;
+			children = (
+				F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */,
+				F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */,
+			);
+			path = GameCreation;
+			sourceTree = "<group>";
+		};
+		F0FAA1DD27AD24290095C4E1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +280,6 @@
 			files = (
 				21D13F6F27A6CE85000D2E1D /* LaunchScreen.storyboard in Resources */,
 				21D13F7A27A6CF48000D2E1D /* Registration.storyboard in Resources */,
-				21D13F6C27A6CE85000D2E1D /* Assets.xcassets in Resources */,
 				21D13F6A27A6CE84000D2E1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,13 +294,16 @@
 				21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */,
 				21D13F9827A6D832000D2E1D /* ViewController.swift in Sources */,
 				21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */,
+				F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */,
 				21D13F8627A6D286000D2E1D /* RegistrationViewController.swift in Sources */,
 				21D13F9027A6D4EE000D2E1D /* RegistrationPresenter.swift in Sources */,
 				21D13F8427A6D274000D2E1D /* RegistrationModuleConfigurator.swift in Sources */,
 				21D13F8227A6D212000D2E1D /* LaunchInstructor.swift in Sources */,
 				21D13F9327A6D565000D2E1D /* RegistrationRouter.swift in Sources */,
+				F0FAA1E127AD4DE40095C4E1 /* GameParameterCell.swift in Sources */,
 				21D13F6327A6CE84000D2E1D /* AppDelegate.swift in Sources */,
 				21D13F6527A6CE84000D2E1D /* SceneDelegate.swift in Sources */,
+				F0FAA1DC27AD23050095C4E1 /* GameCreationViewController.swift in Sources */,
 				21D13F8A27A6D382000D2E1D /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +449,6 @@
 		21D13F7427A6CE85000D2E1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -452,7 +475,6 @@
 		21D13F7527A6CE85000D2E1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

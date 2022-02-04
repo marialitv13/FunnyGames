@@ -26,7 +26,6 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
     }
     
     func createNewGameButtonTapped() {
-        print("THEREE")
         router?.showGameCreationScreen()
     }
 

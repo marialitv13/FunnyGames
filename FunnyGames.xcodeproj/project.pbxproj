@@ -23,7 +23,6 @@
 		21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9C27A6DA39000D2E1D /* Storyboards.swift */; };
 		F0FAA1DC27AD23050095C4E1 /* GameCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */; };
 		F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */; };
-		F0FAA1E127AD4DE40095C4E1 /* GameParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */; };
 		F0FAA1F827ADA77A0095C4E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0FAA1F727ADA77A0095C4E1 /* GoogleService-Info.plist */; };
 		F0FAA1FC27ADA9830095C4E1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F0FAA1FB27ADA9830095C4E1 /* FirebaseAnalytics */; };
 		F0FAA1FE27ADA9830095C4E1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F0FAA1FD27ADA9830095C4E1 /* FirebaseAuth */; };
@@ -35,6 +34,9 @@
 		F0FAA20A27ADA9830095C4E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F0FAA20927ADA9830095C4E1 /* FirebaseStorage */; };
 		F0FAA20C27ADA9830095C4E1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F0FAA20B27ADA9830095C4E1 /* FirebaseStorageCombine-Community */; };
 		F0FAA20E27ADA9830095C4E1 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F0FAA20D27ADA9830095C4E1 /* FirebaseStorageSwift-Beta */; };
+		F0FAA21027ADB19E0095C4E1 /* GameCreationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA20F27ADB19E0095C4E1 /* GameCreationPresenter.swift */; };
+		F0FAA21227ADB44D0095C4E1 /* GameCreationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA21127ADB44D0095C4E1 /* GameCreationRouter.swift */; };
+		F0FAA21427ADC1B80095C4E1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA21327ADC1B80095C4E1 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +58,10 @@
 		21D13F9C27A6DA39000D2E1D /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreationViewController.swift; sourceTree = "<group>"; };
 		F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionable.swift; sourceTree = "<group>"; };
-		F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParameterCell.swift; sourceTree = "<group>"; };
 		F0FAA1F727ADA77A0095C4E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F0FAA20F27ADB19E0095C4E1 /* GameCreationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreationPresenter.swift; sourceTree = "<group>"; };
+		F0FAA21127ADB44D0095C4E1 /* GameCreationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreationRouter.swift; sourceTree = "<group>"; };
+		F0FAA21327ADC1B80095C4E1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				21D13F8F27A6D4EE000D2E1D /* RegistrationPresenter.swift */,
+				F0FAA20F27ADB19E0095C4E1 /* GameCreationPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				21D13F9227A6D565000D2E1D /* RegistrationRouter.swift */,
+				F0FAA21127ADB44D0095C4E1 /* GameCreationRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			children = (
 				21D13F9727A6D832000D2E1D /* ViewController.swift */,
 				21D13F9927A6D887000D2E1D /* NSObject.swift */,
+				F0FAA21327ADC1B80095C4E1 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				F0FAA1DB27AD23050095C4E1 /* GameCreationViewController.swift */,
-				F0FAA1E027AD4DE40095C4E1 /* GameParameterCell.swift */,
 			);
 			path = GameCreation;
 			sourceTree = "<group>";
@@ -333,16 +339,18 @@
 				21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */,
 				21D13F9827A6D832000D2E1D /* ViewController.swift in Sources */,
 				21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */,
+				F0FAA21227ADB44D0095C4E1 /* GameCreationRouter.swift in Sources */,
+				F0FAA21027ADB19E0095C4E1 /* GameCreationPresenter.swift in Sources */,
 				F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */,
 				21D13F8627A6D286000D2E1D /* RegistrationViewController.swift in Sources */,
 				21D13F9027A6D4EE000D2E1D /* RegistrationPresenter.swift in Sources */,
 				21D13F8427A6D274000D2E1D /* RegistrationModuleConfigurator.swift in Sources */,
 				21D13F8227A6D212000D2E1D /* LaunchInstructor.swift in Sources */,
 				21D13F9327A6D565000D2E1D /* RegistrationRouter.swift in Sources */,
-				F0FAA1E127AD4DE40095C4E1 /* GameParameterCell.swift in Sources */,
 				21D13F6327A6CE84000D2E1D /* AppDelegate.swift in Sources */,
 				21D13F6527A6CE84000D2E1D /* SceneDelegate.swift in Sources */,
 				F0FAA1DC27AD23050095C4E1 /* GameCreationViewController.swift in Sources */,
+				F0FAA21427ADC1B80095C4E1 /* String.swift in Sources */,
 				21D13F8A27A6D382000D2E1D /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

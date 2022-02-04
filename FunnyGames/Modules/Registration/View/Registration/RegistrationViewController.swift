@@ -7,12 +7,10 @@
 
 import UIKit
 
-/// Протокол с методами для реализации со стороны RegistrationViewController.
 protocol RegistrationViewProtocol: AnyObject {
     func setupInitialState()
 }
 
-/// UI-класс для страницы регистрации техники.
 class RegistrationViewController: UIViewController, RegistrationViewProtocol, ModuleTransitionable {
     
     var presenter: RegistrationPresenterProtocol?

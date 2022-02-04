@@ -25,13 +25,13 @@ class RegistrationModuleConfigurator {
     
     func configureGameCreationScreen() -> GameCreationViewController {
         let view = GameCreationViewController.controllerFromStoryboard(.registration)
-//        let presenter = RegistrationPresenter()
-//        let router = RegistrationRouter()
-//
-//        presenter.view = view
-//        presenter.router = router
-//        router.view = view
-//        view.presenter = presenter
+        let presenter = GameCreationPresenter()
+        let router = GameCreationRouter()
+
+        presenter.view = view
+        presenter.router = router
+        router.view = view
+        view.presenter = presenter
         
         return view
     }

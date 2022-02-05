@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="3204" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Pregame View Controller-->
         <scene sceneID="OzN-1A-yJm">
             <objects>
-                <viewController id="OSQ-8h-dvW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PregameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSQ-8h-dvW" customClass="PregameViewController" customModule="FunnyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RI4-Li-tXO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,6 +287,9 @@
                             <constraint firstItem="vRY-Cd-PNZ" firstAttribute="top" secondItem="Vkv-hc-htJ" secondAttribute="bottom" constant="20" id="z02-7x-QmJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameIDLabel" destination="GeU-Q5-B4d" id="I6k-07-fvs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0H-DX-Ctr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

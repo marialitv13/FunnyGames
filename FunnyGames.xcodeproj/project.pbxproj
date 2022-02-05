@@ -23,6 +23,10 @@
 		21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9C27A6DA39000D2E1D /* Storyboards.swift */; };
 		F0CB74F727AEB5BE004D0486 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB74F627AEB5BE004D0486 /* APIManager.swift */; };
 		F0CB74FD27AED9C0004D0486 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0CB74FC27AED9C0004D0486 /* Localizable.strings */; };
+		F0CB750027AF085E004D0486 /* LogInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB74FF27AF085E004D0486 /* LogInModel.swift */; };
+		F0CB750327AF181C004D0486 /* PregameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB750227AF181C004D0486 /* PregameViewController.swift */; };
+		F0CB750527AF186B004D0486 /* PregamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB750427AF186B004D0486 /* PregamePresenter.swift */; };
+		F0CB750727AF1A7E004D0486 /* PregameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB750627AF1A7E004D0486 /* PregameRouter.swift */; };
 		F0FAA1DC27AD23050095C4E1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DB27AD23050095C4E1 /* LogInViewController.swift */; };
 		F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */; };
 		F0FAA1F827ADA77A0095C4E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0FAA1F727ADA77A0095C4E1 /* GoogleService-Info.plist */; };
@@ -60,6 +64,10 @@
 		21D13F9C27A6DA39000D2E1D /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		F0CB74F627AEB5BE004D0486 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F0CB74FC27AED9C0004D0486 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F0CB74FF27AF085E004D0486 /* LogInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModel.swift; sourceTree = "<group>"; };
+		F0CB750227AF181C004D0486 /* PregameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregameViewController.swift; sourceTree = "<group>"; };
+		F0CB750427AF186B004D0486 /* PregamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregamePresenter.swift; sourceTree = "<group>"; };
+		F0CB750627AF1A7E004D0486 /* PregameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregameRouter.swift; sourceTree = "<group>"; };
 		F0FAA1DB27AD23050095C4E1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F0FAA1DE27AD243B0095C4E1 /* ModuleTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionable.swift; sourceTree = "<group>"; };
 		F0FAA1F727ADA77A0095C4E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		21D13F7627A6CEA4000D2E1D /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				F0CB74FE27AF084F004D0486 /* Model */,
 				21D13F9127A6D555000D2E1D /* Router */,
 				21D13F8D27A6D4D0000D2E1D /* Presenter */,
 				21D13F8C27A6D4C3000D2E1D /* Configurator */,
@@ -169,6 +178,7 @@
 		21D13F8B27A6D4AE000D2E1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0CB750127AF180C004D0486 /* Pregame */,
 				F0FAA1DA27AD22EB0095C4E1 /* LogIn */,
 				F0FAA1D927AD22E30095C4E1 /* Registration */,
 				21D13F7927A6CF48000D2E1D /* Registration.storyboard */,
@@ -189,6 +199,7 @@
 			children = (
 				21D13F8F27A6D4EE000D2E1D /* RegistrationPresenter.swift */,
 				F0FAA20F27ADB19E0095C4E1 /* LogInPresenter.swift */,
+				F0CB750427AF186B004D0486 /* PregamePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -198,6 +209,7 @@
 			children = (
 				21D13F9227A6D565000D2E1D /* RegistrationRouter.swift */,
 				F0FAA21127ADB44D0095C4E1 /* LogInRouter.swift */,
+				F0CB750627AF1A7E004D0486 /* PregameRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -245,6 +257,22 @@
 				F0CB74FC27AED9C0004D0486 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F0CB74FE27AF084F004D0486 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0CB74FF27AF085E004D0486 /* LogInModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0CB750127AF180C004D0486 /* Pregame */ = {
+			isa = PBXGroup;
+			children = (
+				F0CB750227AF181C004D0486 /* PregameViewController.swift */,
+			);
+			path = Pregame;
 			sourceTree = "<group>";
 		};
 		F0FAA1D927AD22E30095C4E1 /* Registration */ = {
@@ -361,14 +389,18 @@
 			files = (
 				21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */,
 				21D13F9827A6D832000D2E1D /* ViewController.swift in Sources */,
+				F0CB750527AF186B004D0486 /* PregamePresenter.swift in Sources */,
 				21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */,
+				F0CB750027AF085E004D0486 /* LogInModel.swift in Sources */,
 				F0FAA21227ADB44D0095C4E1 /* LogInRouter.swift in Sources */,
 				F0FAA21027ADB19E0095C4E1 /* LogInPresenter.swift in Sources */,
 				F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */,
 				21D13F8627A6D286000D2E1D /* RegistrationViewController.swift in Sources */,
 				21D13F9027A6D4EE000D2E1D /* RegistrationPresenter.swift in Sources */,
 				21D13F8427A6D274000D2E1D /* RegistrationModuleConfigurator.swift in Sources */,
+				F0CB750327AF181C004D0486 /* PregameViewController.swift in Sources */,
 				21D13F8227A6D212000D2E1D /* LaunchInstructor.swift in Sources */,
+				F0CB750727AF1A7E004D0486 /* PregameRouter.swift in Sources */,
 				21D13F9327A6D565000D2E1D /* RegistrationRouter.swift in Sources */,
 				21D13F6327A6CE84000D2E1D /* AppDelegate.swift in Sources */,
 				F0CB74F727AEB5BE004D0486 /* APIManager.swift in Sources */,

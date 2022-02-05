@@ -26,12 +26,32 @@ class LogInPresenter: LogInPresenterProtocol {
     
     func buttonTapped(gameID: String?, nickname: String) {
         if createNewGameMode == true {
-            database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname])
+            addToDatabase(gameID: gameID, nickname: nickname)
         } else {
-            
+            database.collection("New game").getDocuments { (snapshot, error) in
+                if error != nil {
+                    self.view?.showErrorAlert()
+                } else {
+                    guard let snapshot = snapshot else {
+                        self.view?.showErrorAlert()
+                        return
+                    }
+                    for document in snapshot.documents {
+                        let data = document.data()
+                        let oneOfGameIDs = data["gameId"] as? String ?? ""
+                        if oneOfGameIDs == gameID {
+                            self.addToDatabase(gameID: gameID, nickname: nickname)
+                        }
+                    }
+                }
+            }
         }
     }
-
+    
+    private func addToDatabase(gameID: String?, nickname: String) {
+        database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname])
+    }
+    
 }
 
 

@@ -16,6 +16,11 @@
 "NicknameSubtitle" = "Обязательно. Его будут видеть ваши друзья.";
 "CreateGameModeButton" = "Создать игру";
 "JoinGameModeButton" = "Присоединиться к игре";
+"AlertTitle" = "Что-то пошло не так :(";
+"AlertSubtitle" = "Пожалуйста, попробуйте еще раз.";
+"Ok" = "Окей";
+
+
 
 
 

@@ -37,5 +37,18 @@ class RegistrationModuleConfigurator {
         return view
     }
     
+    func configurePregameScreen() -> PregameViewController {
+        let view = PregameViewController.controllerFromStoryboard(.registration)
+        let presenter = PregamePresenter()
+        let router = PregameRouter()
+
+        presenter.view = view
+        presenter.router = router
+        router.view = view
+        view.presenter = presenter
+        
+        return view
+    }
+    
 }
 

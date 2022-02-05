@@ -9,10 +9,11 @@ import UIKit
 
 protocol LogInViewProtocol: AnyObject {
     func setupInitialState(createNewGameMode: Bool)
+    func showErrorAlert()
 }
 
 class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransitionable {
-   
+    
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var idSubtitleLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -49,6 +50,12 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
         idLabel.text = NSLocalizedString("JoinGameModeIdTitle", comment: "")
         idSubtitleLabel.text = NSLocalizedString("JoinGameModeIdSubtitle", comment: "")
         createButton.setTitle(NSLocalizedString("JoinGameModeButton", comment: ""), for: .normal)
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("AlertTitle", comment: ""), message: NSLocalizedString("AlertSubtitle", comment: ""), preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func didTapCreateButton(_ sender: UIButton) {

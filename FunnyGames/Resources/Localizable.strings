@@ -1,0 +1,21 @@
+/* 
+  Strings.strings
+  FunnyGames
+
+  Created by Mariya Litvinenko on 05.02.2022.
+  
+*/
+
+/* Registration */
+
+"CreateGameModeIdTitle" = "Придумайте идентификатор игры:";
+"CreateGameModeIdSubtitle" = "Вы можете оставить это поле пустым - мы сгенерируем его автоматически.";
+"JoinGameModeIdTitle" = "Введите идентификатор игры:";
+"JoinGameModeIdSubtitle" = "Его должен сообщить вам организатор. Если организатора нет, вернитесь и создайте новую игру.";
+"NicknameTitle" = "Придумайте никнейм:";
+"NicknameSubtitle" = "Обязательно. Его будут видеть ваши друзья.";
+"CreateGameModeButton" = "Создать игру";
+"JoinGameModeButton" = "Присоединиться к игре";
+
+
+

@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol GameCreationRouterProtocol {
+protocol LogInRouterProtocol {
     var view: ModuleTransitionable? { get set }
 //    func showGameCreationScreen()
 }
 
-class GameCreationRouter: GameCreationRouterProtocol {
+class LogInRouter: LogInRouterProtocol {
  
     weak var view: ModuleTransitionable?
     var configurator: RegistrationModuleConfigurator?

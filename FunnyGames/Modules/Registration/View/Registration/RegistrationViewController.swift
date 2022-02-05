@@ -25,6 +25,7 @@ class RegistrationViewController: UIViewController, RegistrationViewProtocol, Mo
     }
     
     @IBAction func didTapJoinButton(_ sender: UIButton) {
+        presenter?.joinGameButtonTapped()
     }
     
     @IBAction func didTapCreateNewButton(_ sender: UIButton) {

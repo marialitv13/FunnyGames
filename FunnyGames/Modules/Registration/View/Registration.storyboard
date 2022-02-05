@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="2534.7826086956525" y="79.6875"/>
         </scene>
-        <!--Game Creation View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="SXg-h1-yWD">
             <objects>
-                <viewController storyboardIdentifier="GameCreationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M2V-zE-pZ1" customClass="GameCreationViewController" customModule="FunnyGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M2V-zE-pZ1" customClass="LogInViewController" customModule="FunnyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yiC-Lq-HTs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,13 +190,17 @@
                     <navigationItem key="navigationItem" id="zqQ-8r-mOo"/>
                     <connections>
                         <outlet property="createButton" destination="Srd-XM-94c" id="Ua0-IV-hhu"/>
+                        <outlet property="idLabel" destination="xe3-Fd-Sj0" id="16e-jh-ytO"/>
+                        <outlet property="idSubtitleLabel" destination="5pd-oi-d0y" id="2Rr-fG-nfB"/>
                         <outlet property="identificatorTextField" destination="op2-vE-4Th" id="Swy-29-A62"/>
+                        <outlet property="nicknameLabel" destination="zQG-9u-CM8" id="nkB-er-gZp"/>
+                        <outlet property="nicknameSubtitleLabel" destination="Ct2-FD-ulb" id="fHR-mw-Ed2"/>
                         <outlet property="nicknameTextField" destination="cGj-9p-Tqi" id="sSn-ZO-Lnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3T-Rg-VAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="79.6875"/>
+            <point key="canvasLocation" x="3204" y="80"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OzN-1A-yJm">

@@ -229,10 +229,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkv-hc-htJ">
                                 <rect key="frame" x="41" y="146" width="332" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="332" id="IFp-Yc-U36"/>
                                     <constraint firstAttribute="height" constant="150" id="WWj-Le-D9O"/>
                                 </constraints>
-                                <string key="text">Это ваш код для входа в игру. Сообщите его друзьям, чтобы они могли присоединиться. Когда все будут готовы, нажмите кнопку "Старт". Присоединиться к игре в процессе будет невозможно.</string>
+                                <string key="text">Это ваш идентификатор для входа в игру. Сообщите его друзьям, чтобы они могли присоединиться. Когда все будут готовы, нажмите кнопку "Старт". Присоединиться к игре в процессе будет невозможно.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -268,6 +267,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.87762569479999997" blue="0.87705181649999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -280,8 +280,10 @@
                             <constraint firstItem="iqd-kA-VaP" firstAttribute="bottom" secondItem="bN2-ig-9er" secondAttribute="bottom" constant="20" id="8dj-VS-DVl"/>
                             <constraint firstItem="GeU-Q5-B4d" firstAttribute="top" secondItem="iqd-kA-VaP" secondAttribute="top" constant="15" id="JAC-2I-AJI"/>
                             <constraint firstItem="Vkv-hc-htJ" firstAttribute="centerX" secondItem="RI4-Li-tXO" secondAttribute="centerX" id="Vbs-8i-8Wo"/>
+                            <constraint firstItem="Vkv-hc-htJ" firstAttribute="leading" secondItem="iqd-kA-VaP" secondAttribute="leading" constant="41" id="b3D-vh-7NO"/>
                             <constraint firstItem="bN2-ig-9er" firstAttribute="top" secondItem="vRY-Cd-PNZ" secondAttribute="bottom" constant="20" id="eoe-xz-oeN"/>
                             <constraint firstItem="Vkv-hc-htJ" firstAttribute="top" secondItem="GeU-Q5-B4d" secondAttribute="bottom" constant="20" id="gv7-VZ-2H2"/>
+                            <constraint firstItem="iqd-kA-VaP" firstAttribute="trailing" secondItem="Vkv-hc-htJ" secondAttribute="trailing" constant="41" id="mvP-QN-XAN"/>
                             <constraint firstItem="vRY-Cd-PNZ" firstAttribute="trailing" secondItem="iqd-kA-VaP" secondAttribute="trailing" id="nOX-ap-xVG"/>
                             <constraint firstItem="GeU-Q5-B4d" firstAttribute="centerX" secondItem="RI4-Li-tXO" secondAttribute="centerX" id="nQ6-s4-ygd"/>
                             <constraint firstItem="vRY-Cd-PNZ" firstAttribute="top" secondItem="Vkv-hc-htJ" secondAttribute="bottom" constant="20" id="z02-7x-QmJ"/>

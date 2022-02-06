@@ -16,8 +16,8 @@ class RegistrationModuleConfigurator {
         
         presenter.view = view
         presenter.router = router
-        router.view = view
         view.presenter = presenter
+        router.view = view
         router.configurator = self
         
         return view
@@ -31,8 +31,9 @@ class RegistrationModuleConfigurator {
         presenter.view = view
         presenter.router = router
         presenter.createNewGameMode = createNewGameMode
-        router.view = view
         view.presenter = presenter
+        router.view = view
+        router.configurator = self
         
         return view
     }
@@ -44,8 +45,9 @@ class RegistrationModuleConfigurator {
 
         presenter.view = view
         presenter.router = router
-        router.view = view
         view.presenter = presenter
+        router.view = view
+        router.configurator = self
         
         return view
     }

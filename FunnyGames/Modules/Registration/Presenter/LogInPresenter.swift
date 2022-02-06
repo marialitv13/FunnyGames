@@ -26,21 +26,35 @@ class LogInPresenter: LogInPresenterProtocol {
     
     func buttonTapped(gameID: String?, nickname: String) {
         if createNewGameMode == true {
-            addToDatabase(gameID: gameID, nickname: nickname)
+            database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
+                if error != nil {
+                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
+                } else {
+                    UserDefaultsManager.setData(value: nickname, key: .nickname)
+                    UserDefaultsManager.setData(value: gameID ?? String.random(), key: .gameID)
+                    self.router!.showPregameScreen()
+                }
+            }
         } else {
             database.collection("New game").getDocuments { (snapshot, error) in
                 if error != nil {
-                    self.view?.showErrorAlert()
+                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
                 } else {
                     guard let snapshot = snapshot else {
-                        self.view?.showErrorAlert()
+                        self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
                         return
                     }
                     for document in snapshot.documents {
                         let data = document.data()
                         let oneOfGameIDs = data["gameId"] as? String ?? ""
                         if oneOfGameIDs == gameID {
-                            self.addToDatabase(gameID: gameID, nickname: nickname)
+                            self.database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
+                                if error != nil {
+                                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
+                                }
+                            }
+                        } else {
+                            self.view?.showErrorAlert(alertTitle: NSLocalizedString("WrongIDAlertTitle", comment: ""))
                         }
                     }
                 }
@@ -49,7 +63,11 @@ class LogInPresenter: LogInPresenterProtocol {
     }
     
     private func addToDatabase(gameID: String?, nickname: String) {
-        database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname])
+        database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
+            if error != nil {
+                self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
+            }
+        }
     }
     
 }

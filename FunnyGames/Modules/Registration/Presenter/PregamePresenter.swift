@@ -17,7 +17,7 @@ class PregamePresenter: PregamePresenterProtocol {
     var router: PregameRouterProtocol?
 
     func viewLoaded() {
-        view?.setupInitialState()
+        view?.setupInitialState(gameID: UserDefaultsManager.getData(type: String.self, forKey: .gameID) ?? "")
     }
 
 }

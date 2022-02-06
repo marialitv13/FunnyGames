@@ -16,7 +16,8 @@
 "NicknameSubtitle" = "Обязательно. Его будут видеть ваши друзья.";
 "CreateGameModeButton" = "Создать игру";
 "JoinGameModeButton" = "Присоединиться к игре";
-"AlertTitle" = "Что-то пошло не так :(";
+"DefaultAlertTitle" = "Что-то пошло не так :(";
+"WrongIDAlertTitle" = "Игра с таким идентификатором не найдена";
 "AlertSubtitle" = "Пожалуйста, попробуйте еще раз.";
 "Ok" = "Окей";
 

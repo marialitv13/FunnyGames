@@ -9,7 +9,7 @@ import UIKit
 
 protocol LogInViewProtocol: AnyObject {
     func setupInitialState(createNewGameMode: Bool)
-    func showErrorAlert()
+    func showErrorAlert(alertTitle: String)
 }
 
 class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransitionable {
@@ -52,8 +52,8 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
         createButton.setTitle(NSLocalizedString("JoinGameModeButton", comment: ""), for: .normal)
     }
     
-    func showErrorAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("AlertTitle", comment: ""), message: NSLocalizedString("AlertSubtitle", comment: ""), preferredStyle: UIAlertController.Style.alert)
+    func showErrorAlert(alertTitle: String) {
+        let alert = UIAlertController(title: alertTitle, message: NSLocalizedString("AlertSubtitle", comment: ""), preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

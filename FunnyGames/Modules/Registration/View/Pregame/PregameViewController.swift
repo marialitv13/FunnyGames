@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PregameViewProtocol: AnyObject {
-    func setupInitialState()
+    func setupInitialState(gameID: String)
 }
 
 class PregameViewController: UIViewController, ModuleTransitionable, PregameViewProtocol {
@@ -22,7 +22,8 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
         presenter?.viewLoaded()
     }
     
-    func setupInitialState() {
+    func setupInitialState(gameID: String) {
+        gameIDLabel.text = gameID
     }
 
 }

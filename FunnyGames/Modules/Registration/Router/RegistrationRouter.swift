@@ -9,7 +9,7 @@ import Foundation
 
 protocol RegistrationRouterProtocol {
     var view: ModuleTransitionable? { get set }
-    func showLogInScreen(createNewGameMode: Bool)
+    func showLogInScreen(createNewGameModeOn: Bool)
 }
 
 class RegistrationRouter: RegistrationRouterProtocol {
@@ -17,8 +17,8 @@ class RegistrationRouter: RegistrationRouterProtocol {
     weak var view: ModuleTransitionable?
     var configurator: RegistrationModuleConfigurator?
     
-    func showLogInScreen(createNewGameMode: Bool) {
-        view?.push(module: configurator!.configureLogInScreen(createNewGameMode: createNewGameMode), animated: true)
+    func showLogInScreen(createNewGameModeOn: Bool) {
+        view?.push(module: configurator!.configureLogInScreen(createNewGameModeOn), animated: true)
     }
     
 }

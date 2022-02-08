@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LogInViewProtocol: AnyObject {
-    func setupInitialState(createNewGameMode: Bool)
+    func setupInitialState(_ createNewGameModeOn: Bool)
     func showErrorAlert(alertTitle: String)
 }
 
@@ -30,10 +30,11 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
         presenter?.viewLoaded()
     }
     
-    func setupInitialState(createNewGameMode: Bool) {
-        if createNewGameMode == true {
+    func setupInitialState(_ createNewGameModeOn: Bool) {
+        switch createNewGameModeOn {
+        case true:
             setupNewGameMode()
-        } else {
+        default:
             setupJoinMode()
         }
         createButton.isEnabled = false

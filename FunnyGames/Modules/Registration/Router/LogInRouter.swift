@@ -9,17 +9,17 @@ import Foundation
 
 protocol LogInRouterProtocol {
     var view: ModuleTransitionable? { get set }
-    func showPregameScreen()
+    func showPregameScreen(gameCreatorModeOn: Bool)
 }
 
 class LogInRouter: LogInRouterProtocol {
- 
+
     weak var view: ModuleTransitionable?
     var configurator: RegistrationModuleConfigurator?
   
-    func showPregameScreen() {
+    func showPregameScreen(gameCreatorModeOn: Bool) {
         guard let configurator = self.configurator else { return }
-        view?.push(module: configurator.configurePregameScreen(), animated: true)
+        view?.push(module: configurator.configurePregameScreen(gameCreatorModeOn), animated: true)
     }
     
 }

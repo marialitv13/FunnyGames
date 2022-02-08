@@ -23,14 +23,14 @@ class RegistrationModuleConfigurator {
         return view
     }
     
-    func configureLogInScreen(createNewGameMode: Bool) -> LogInViewController {
+    func configureLogInScreen(_ createNewGameModeOn: Bool) -> LogInViewController {
         let view = LogInViewController.controllerFromStoryboard(.registration)
         let presenter = LogInPresenter()
         let router = LogInRouter()
 
         presenter.view = view
         presenter.router = router
-        presenter.createNewGameMode = createNewGameMode
+        presenter.createNewGameModeOn = createNewGameModeOn
         view.presenter = presenter
         router.view = view
         router.configurator = self
@@ -38,13 +38,14 @@ class RegistrationModuleConfigurator {
         return view
     }
     
-    func configurePregameScreen() -> PregameViewController {
+    func configurePregameScreen(_ gameCreatorModeOn: Bool) -> PregameViewController {
         let view = PregameViewController.controllerFromStoryboard(.registration)
         let presenter = PregamePresenter()
         let router = PregameRouter()
 
         presenter.view = view
         presenter.router = router
+        presenter.gameCreatorModeOn = gameCreatorModeOn
         view.presenter = presenter
         router.view = view
         router.configurator = self

@@ -8,9 +8,7 @@
 import Foundation
 
 enum APIKeys: String, CaseIterable {
- case newGame
- case gameID
- case firstNickname
- case secondNickname
- case thirdNickname
+    case newGame
+    case gameID
+    case nickname
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 enum APIResult {
-   case success
-   case failure(FailureType)
+    case success
+    case recievedData(Any?)
+    case failure(FailureType)
 }
 
 enum FailureType {

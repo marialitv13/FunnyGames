@@ -23,11 +23,11 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
     }
     
     func joinGameButtonTapped() {
-        router?.showLogInScreen(createNewGameMode: false)
+        router?.showLogInScreen(createNewGameModeOn: false)
     }
     
     func createNewGameButtonTapped() {
-        router?.showLogInScreen(createNewGameMode: true)
+        router?.showLogInScreen(createNewGameModeOn: true)
     }
 
 }

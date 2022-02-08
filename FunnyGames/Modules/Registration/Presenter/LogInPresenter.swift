@@ -16,16 +16,16 @@ class LogInPresenter: LogInPresenterProtocol {
 
     weak var view: LogInViewProtocol?
     var router: LogInRouterProtocol?
-    var createNewGameMode: Bool?
+    var createNewGameModeOn: Bool?
     let defaultAlert = NSLocalizedString("DefaultAlertTitle", comment: "")
     let apiManager = APIManager.shared
     
     func viewLoaded() {
-        view?.setupInitialState(createNewGameMode: createNewGameMode ?? false)
+        view?.setupInitialState(createNewGameModeOn ?? false)
     }
     
     func buttonTapped(gameID: String?, nickname: String) {
-        switch createNewGameMode {
+        switch createNewGameModeOn {
         case true:
             createNewGame(gameID: gameID, nickname: nickname)
         default:
@@ -40,9 +40,11 @@ class LogInPresenter: LogInPresenterProtocol {
             case .success:
                 UserDefaultsManager.setData(value: nickname, key: .nickname)
                 UserDefaultsManager.setData(value: gameID, key: .gameID)
-                self.router?.showPregameScreen()
+                self.router?.showPregameScreen(gameCreatorModeOn: true)
             case .failure:
                 self.view?.showErrorAlert(alertTitle: self.defaultAlert)
+            default:
+                break
             }
         }
     }
@@ -51,13 +53,17 @@ class LogInPresenter: LogInPresenterProtocol {
         apiManager.addNewMemberToExistingGame(gameID: gameID, nickname: nickname) { result in
             switch result {
             case .success:
-                self.router?.showPregameScreen()
+                self.router?.showPregameScreen(gameCreatorModeOn: false)
             case .failure(let errorMessage):
                 if errorMessage == .unknown {
                     self.view?.showErrorAlert(alertTitle: self.defaultAlert)
                 } else if errorMessage == .wrongId {
                     self.view?.showErrorAlert(alertTitle: NSLocalizedString("WrongIDAlertTitle", comment: ""))
+                } else if errorMessage == .tooManyMembers {
+                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("TooManyMembersAlertTitle", comment: ""))
                 }
+            default:
+                break
             }
         }
     }

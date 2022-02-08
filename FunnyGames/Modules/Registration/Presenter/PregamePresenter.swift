@@ -17,14 +17,18 @@ class PregamePresenter: PregamePresenterProtocol {
     weak var view: PregameViewProtocol?
     var router: PregameRouterProtocol?
     let database = Firestore.firestore()
+    var gameCreatorModeOn: Bool?
+    let apiManager = APIManager.shared
     
     func viewLoaded() {
-        let gameID = UserDefaultsManager.getData(type: String.self, forKey: .gameID)
-        view?.setupInitialState(gameID: gameID ?? "")
-        let collectionRef = self.database.collection("New game")
-        collectionRef.whereField("gameID", isEqualTo: gameID).addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                return
+        guard let gameID = UserDefaultsManager.getData(type: String.self, forKey: .gameID) else { return }
+        view?.setupInitialState(gameCreatorModeOn ?? false, gameID: gameID)
+        apiManager.addSnapshotListener(for: gameID) { result in
+            switch result {
+            case .recievedData(let data):
+                self.view?.updateView(with: data as? [String])
+            default:
+                break
             }
         }
     }

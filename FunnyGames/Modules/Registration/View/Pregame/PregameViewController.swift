@@ -14,7 +14,8 @@ protocol PregameViewProtocol: AnyObject {
 class PregameViewController: UIViewController, ModuleTransitionable, PregameViewProtocol {
     
     @IBOutlet weak var gameIDLabel: UILabel!
-    
+    @IBOutlet weak var gameMembersTableView: UITableView!
+
     var presenter: PregamePresenterProtocol?
     
     override func viewDidLoad() {
@@ -27,3 +28,16 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
     }
 
 }
+
+//extension PregameViewController: UITableViewDelegate, UITableViewDataSource {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//    }
+//    
+//    
+//}

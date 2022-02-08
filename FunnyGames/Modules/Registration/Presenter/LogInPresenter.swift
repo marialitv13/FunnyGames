@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 protocol LogInPresenterProtocol {
     func viewLoaded()
@@ -18,55 +17,56 @@ class LogInPresenter: LogInPresenterProtocol {
     weak var view: LogInViewProtocol?
     var router: LogInRouterProtocol?
     var createNewGameMode: Bool?
-    let database = Firestore.firestore()
+    let defaultAlert = NSLocalizedString("DefaultAlertTitle", comment: "")
+    let apiManager = APIManager.shared
     
     func viewLoaded() {
         view?.setupInitialState(createNewGameMode: createNewGameMode ?? false)
     }
     
     func buttonTapped(gameID: String?, nickname: String) {
-        if createNewGameMode == true {
-            database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
-                if error != nil {
-                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
-                } else {
-                    UserDefaultsManager.setData(value: nickname, key: .nickname)
-                    UserDefaultsManager.setData(value: gameID ?? String.random(), key: .gameID)
-                    self.router!.showPregameScreen()
-                }
+        switch createNewGameMode {
+        case true:
+            createNewGame(gameID: gameID, nickname: nickname)
+        default:
+            addNewMemberToExistingGame(gameID: gameID, nickname: nickname)
+        }
+    }
+    
+    private func createNewGame(gameID: String?, nickname: String) {
+        let gameID = createGameIDIfNeeded(from: gameID)
+        apiManager.addNewGame(gameID: gameID, nickName: nickname) { result in
+            switch result {
+            case .success:
+                UserDefaultsManager.setData(value: nickname, key: .nickname)
+                UserDefaultsManager.setData(value: gameID, key: .gameID)
+                self.router?.showPregameScreen()
+            case .failure:
+                self.view?.showErrorAlert(alertTitle: self.defaultAlert)
             }
-        } else {
-            database.collection("New game").getDocuments { (snapshot, error) in
-                if error != nil {
-                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
-                } else {
-                    guard let snapshot = snapshot else {
-                        self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
-                        return
-                    }
-                    for document in snapshot.documents {
-                        let data = document.data()
-                        let oneOfGameIDs = data["gameId"] as? String ?? ""
-                        if oneOfGameIDs == gameID {
-                            self.database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
-                                if error != nil {
-                                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
-                                }
-                            }
-                        } else {
-                            self.view?.showErrorAlert(alertTitle: NSLocalizedString("WrongIDAlertTitle", comment: ""))
-                        }
-                    }
+        }
+    }
+    
+    private func addNewMemberToExistingGame(gameID: String?, nickname: String) {
+        apiManager.addNewMemberToExistingGame(gameID: gameID, nickname: nickname) { result in
+            switch result {
+            case .success:
+                self.router?.showPregameScreen()
+            case .failure(let errorMessage):
+                if errorMessage == .unknown {
+                    self.view?.showErrorAlert(alertTitle: self.defaultAlert)
+                } else if errorMessage == .wrongId {
+                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("WrongIDAlertTitle", comment: ""))
                 }
             }
         }
     }
     
-    private func addToDatabase(gameID: String?, nickname: String) {
-        database.collection("New game").addDocument(data: ["gameId": gameID ?? String.random(), "nickname": nickname]) { error in
-            if error != nil {
-                self.view?.showErrorAlert(alertTitle: NSLocalizedString("DefaultAlertTitle", comment: ""))
-            }
+    private func createGameIDIfNeeded(from gameID: String?) -> String {
+        if gameID == nil {
+            return String.random()
+        } else {
+            return gameID!
         }
     }
     

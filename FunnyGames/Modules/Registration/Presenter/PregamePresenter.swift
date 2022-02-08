@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 protocol PregamePresenterProtocol {
     func viewLoaded()
@@ -15,9 +16,17 @@ class PregamePresenter: PregamePresenterProtocol {
     
     weak var view: PregameViewProtocol?
     var router: PregameRouterProtocol?
-
+    let database = Firestore.firestore()
+    
     func viewLoaded() {
-        view?.setupInitialState(gameID: UserDefaultsManager.getData(type: String.self, forKey: .gameID) ?? "")
+        let gameID = UserDefaultsManager.getData(type: String.self, forKey: .gameID)
+        view?.setupInitialState(gameID: gameID ?? "")
+        let collectionRef = self.database.collection("New game")
+        collectionRef.whereField("gameID", isEqualTo: gameID).addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                return
+            }
+        }
     }
-
+    
 }

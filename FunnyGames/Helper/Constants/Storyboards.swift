@@ -9,4 +9,5 @@ import Foundation
 
 enum Storyboards: String {
     case registration = "Registration"
+    case game = "Game"
 }

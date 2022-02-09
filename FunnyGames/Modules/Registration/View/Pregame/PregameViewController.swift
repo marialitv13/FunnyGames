@@ -17,6 +17,7 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
     @IBOutlet weak var gameIDLabel: UILabel!
     @IBOutlet weak var gameDesc: UILabel!
     @IBOutlet weak var gameMembersTableView: UITableView!
+    @IBOutlet weak var startButton: UIButton!
     
     var presenter: PregamePresenterProtocol?
     var gameMembers = [String]()
@@ -24,6 +25,7 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewLoaded()
+        gameMembersTableView.separatorStyle = .none
     }
     
     func setupInitialState(_ gameCreatorModeOn: Bool, gameID: String) {
@@ -33,12 +35,17 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
             gameDesc.text = NSLocalizedString("GameCreatorDescTitle", comment: "")
         default:
             gameDesc.text = NSLocalizedString("DefaultDescTitle", comment: "")
+            startButton.isHidden = true
         }
     }
 
     func updateView(with gameMembers: [String]?) {
         self.gameMembers = gameMembers ?? [String]()
         gameMembersTableView.reloadData()
+    }
+    
+    @IBAction func didTapStartButton(_ sender: UIButton) {
+        presenter?.startButtonTapped()
     }
 
 }
@@ -51,7 +58,8 @@ extension PregameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameMemberCell") as! GameMemberCell
-        cell.gameMemberLabel.text = gameMembers[indexPath.row]
+        cell.gameMemberLabel.text = "\(gameMembers[indexPath.row]) в игре"
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         return cell
     }
 

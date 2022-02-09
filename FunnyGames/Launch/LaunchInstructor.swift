@@ -8,12 +8,12 @@
 import Foundation
 
 enum LaunchInstructor {
-    case registration, main
+    case registration, game
     
     static func setupInitialPage() -> LaunchInstructor {
         switch SessionManager.isAuthorized {
         case true:
-            return .main
+            return .game
         default:
             return .registration
         }
@@ -21,6 +21,10 @@ enum LaunchInstructor {
     
     static func performRegistration() -> RegistrationViewController {
         return RegistrationModuleConfigurator().configureRegistrationSceen()
+    }
+    
+    static func performGame() -> GameViewController {
+        return GameModuleConfigurator().configureGameSceen()
     }
     
 }

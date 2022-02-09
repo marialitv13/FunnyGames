@@ -10,10 +10,11 @@ import Firebase
 
 protocol PregamePresenterProtocol {
     func viewLoaded()
+    func startButtonTapped()
 }
 
 class PregamePresenter: PregamePresenterProtocol {
-    
+   
     weak var view: PregameViewProtocol?
     var router: PregameRouterProtocol?
     let database = Firestore.firestore()
@@ -31,6 +32,10 @@ class PregamePresenter: PregamePresenterProtocol {
                 break
             }
         }
+    }
+    
+    func startButtonTapped() {
+        router?.showGameScreen()
     }
     
 }

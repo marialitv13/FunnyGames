@@ -21,6 +21,11 @@
 		21D13F9827A6D832000D2E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9727A6D832000D2E1D /* ViewController.swift */; };
 		21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9927A6D887000D2E1D /* NSObject.swift */; };
 		21D13F9D27A6DA39000D2E1D /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D13F9C27A6DA39000D2E1D /* Storyboards.swift */; };
+		F01529D227B3E9F400091EAC /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01529D127B3E9F400091EAC /* Game.storyboard */; };
+		F01529D527B3EC2200091EAC /* GameConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01529D427B3EC2200091EAC /* GameConfigurator.swift */; };
+		F01529D727B3EC3600091EAC /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01529D627B3EC3600091EAC /* GamePresenter.swift */; };
+		F01529DD27B3EC7700091EAC /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01529DC27B3EC7700091EAC /* GameRouter.swift */; };
+		F01529E127B3EE9300091EAC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01529E027B3EE9300091EAC /* GameViewController.swift */; };
 		F07750DA27B2F5D7008F694A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07750D927B2F5D7008F694A /* APIKeys.swift */; };
 		F07750DC27B2F5F0008F694A /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07750DB27B2F5F0008F694A /* APIResult.swift */; };
 		F07750E127B306CA008F694A /* GameMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07750E027B306CA008F694A /* GameMemberCell.swift */; };
@@ -66,6 +71,11 @@
 		21D13F9727A6D832000D2E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21D13F9927A6D887000D2E1D /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		21D13F9C27A6DA39000D2E1D /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		F01529D127B3E9F400091EAC /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		F01529D427B3EC2200091EAC /* GameConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurator.swift; sourceTree = "<group>"; };
+		F01529D627B3EC3600091EAC /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		F01529DC27B3EC7700091EAC /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
+		F01529E027B3EE9300091EAC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F07750D927B2F5D7008F694A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		F07750DB27B2F5F0008F694A /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		F07750E027B306CA008F694A /* GameMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMemberCell.swift; sourceTree = "<group>"; };
@@ -161,6 +171,8 @@
 		21D13F7E27A6D1AF000D2E1D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F01529D327B3EC1100091EAC /* View */,
+				F01529D027B3E9CF00091EAC /* Game */,
 				21D13F7627A6CEA4000D2E1D /* Registration */,
 			);
 			path = Modules;
@@ -251,6 +263,57 @@
 				21D13F9C27A6DA39000D2E1D /* Storyboards.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F01529D027B3E9CF00091EAC /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F01529DB27B3EC6A00091EAC /* Router */,
+				F01529DA27B3EC5F00091EAC /* Configurator */,
+				F01529D927B3EC5500091EAC /* View */,
+				F01529D827B3EC3F00091EAC /* Presenter */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		F01529D327B3EC1100091EAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F01529D827B3EC3F00091EAC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F01529D627B3EC3600091EAC /* GamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F01529D927B3EC5500091EAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F01529D127B3E9F400091EAC /* Game.storyboard */,
+				F01529E027B3EE9300091EAC /* GameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F01529DA27B3EC5F00091EAC /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				F01529D427B3EC2200091EAC /* GameConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		F01529DB27B3EC6A00091EAC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F01529DC27B3EC7700091EAC /* GameRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		F0CB74F427AEB501004D0486 /* BackendAPI */ = {
@@ -384,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01529D227B3E9F400091EAC /* Game.storyboard in Resources */,
 				21D13F6F27A6CE85000D2E1D /* LaunchScreen.storyboard in Resources */,
 				F0FAA1F827ADA77A0095C4E1 /* GoogleService-Info.plist in Resources */,
 				21D13F7A27A6CF48000D2E1D /* Registration.storyboard in Resources */,
@@ -407,20 +471,24 @@
 				21D13F9A27A6D887000D2E1D /* NSObject.swift in Sources */,
 				F0CB750027AF085E004D0486 /* LogInModel.swift in Sources */,
 				F07750DA27B2F5D7008F694A /* APIKeys.swift in Sources */,
+				F01529E127B3EE9300091EAC /* GameViewController.swift in Sources */,
 				F0FAA21227ADB44D0095C4E1 /* LogInRouter.swift in Sources */,
 				F0FAA21027ADB19E0095C4E1 /* LogInPresenter.swift in Sources */,
 				F0FAA1DF27AD243B0095C4E1 /* ModuleTransitionable.swift in Sources */,
 				21D13F8627A6D286000D2E1D /* RegistrationViewController.swift in Sources */,
 				21D13F9027A6D4EE000D2E1D /* RegistrationPresenter.swift in Sources */,
 				21D13F8427A6D274000D2E1D /* RegistrationModuleConfigurator.swift in Sources */,
+				F01529DD27B3EC7700091EAC /* GameRouter.swift in Sources */,
 				F0CB750327AF181C004D0486 /* PregameViewController.swift in Sources */,
 				21D13F8227A6D212000D2E1D /* LaunchInstructor.swift in Sources */,
 				F0CB750727AF1A7E004D0486 /* PregameRouter.swift in Sources */,
 				F091C46D27B04A8100AA7C11 /* UserDefaults.swift in Sources */,
 				21D13F9327A6D565000D2E1D /* RegistrationRouter.swift in Sources */,
 				21D13F6327A6CE84000D2E1D /* AppDelegate.swift in Sources */,
+				F01529D527B3EC2200091EAC /* GameConfigurator.swift in Sources */,
 				F0CB74F727AEB5BE004D0486 /* APIManager.swift in Sources */,
 				21D13F6527A6CE84000D2E1D /* SceneDelegate.swift in Sources */,
+				F01529D727B3EC3600091EAC /* GamePresenter.swift in Sources */,
 				F0FAA1DC27AD23050095C4E1 /* LogInViewController.swift in Sources */,
 				F0FAA21427ADC1B80095C4E1 /* String.swift in Sources */,
 				21D13F8A27A6D382000D2E1D /* SessionManager.swift in Sources */,

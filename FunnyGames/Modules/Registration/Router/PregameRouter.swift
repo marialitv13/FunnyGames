@@ -9,11 +9,16 @@ import Foundation
 
 protocol PregameRouterProtocol {
     var view: ModuleTransitionable? { get set }
+    func showGameScreen() 
 }
 
 class PregameRouter: PregameRouterProtocol {
     
     weak var view: ModuleTransitionable?
     var configurator: RegistrationModuleConfigurator?
+    
+    func showGameScreen() {
+        view?.push(module: GameModuleConfigurator().configureGameSceen(), animated: true)
+    }
     
 }

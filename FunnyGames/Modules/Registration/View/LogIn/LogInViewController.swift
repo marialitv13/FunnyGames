@@ -54,9 +54,7 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
     }
     
     func showErrorAlert(alertTitle: String) {
-        let alert = UIAlertController(title: alertTitle, message: NSLocalizedString("AlertSubtitle", comment: ""), preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(alertTitle: alertTitle)
     }
     
     @IBAction func didTapCreateButton(_ sender: UIButton) {

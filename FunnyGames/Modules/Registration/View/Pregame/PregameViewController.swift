@@ -10,10 +10,11 @@ import UIKit
 protocol PregameViewProtocol: AnyObject {
     func setupInitialState(_ gameCreatorModeOn: Bool, gameID: String)
     func updateView(with gameMembers: [String]?)
+    func showErrorAlert(alertTitle: String)
 }
 
 class PregameViewController: UIViewController, ModuleTransitionable, PregameViewProtocol {
-  
+    
     @IBOutlet weak var gameIDLabel: UILabel!
     @IBOutlet weak var gameDesc: UILabel!
     @IBOutlet weak var gameMembersTableView: UITableView!
@@ -42,6 +43,10 @@ class PregameViewController: UIViewController, ModuleTransitionable, PregameView
     func updateView(with gameMembers: [String]?) {
         self.gameMembers = gameMembers ?? [String]()
         gameMembersTableView.reloadData()
+    }
+    
+    func showErrorAlert(alertTitle: String) {
+        showAlert(alertTitle: alertTitle)
     }
     
     @IBAction func didTapStartButton(_ sender: UIButton) {

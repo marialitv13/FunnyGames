@@ -11,4 +11,5 @@ enum APIKeys: String, CaseIterable {
     case newGame
     case gameID
     case nickname
+    case start
 }

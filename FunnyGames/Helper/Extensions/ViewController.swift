@@ -23,7 +23,7 @@ extension UIViewController {
     
 }
 
-private extension UIViewController {
+extension UIViewController {
     
     static func instantiateControllerInStoryboard<T: UIViewController>(_ storyboard: UIStoryboard, identifier: String) -> T {
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
@@ -33,20 +33,10 @@ private extension UIViewController {
 
 extension UIViewController {
 
-    func show(message: String, title: String? = nil, actions: [UIAlertAction]) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        for a in actions {
-            alert.addAction(a)
-            }
-        present(alert, animated: true, completion: nil)
-    }
-
-    func show(actionTitle title: String?, actions: [UIAlertAction]) {
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        for a in actions {
-            alert.addAction(a)
-        }
-        present(alert, animated: true, completion: nil)
+    func showAlert(alertTitle: String) {
+        let alert = UIAlertController(title: alertTitle, message: NSLocalizedString("AlertSubtitle", comment: ""), preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

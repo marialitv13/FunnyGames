@@ -16,5 +16,4 @@ enum APIResult {
 enum FailureType {
     case unknown
     case wrongId
-    case tooManyMembers
 }

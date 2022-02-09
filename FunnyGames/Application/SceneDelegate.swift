@@ -18,28 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             switch LaunchInstructor.setupInitialPage() {
             case .registration:
                 navigationVС.viewControllers = [LaunchInstructor.performRegistration()]
-            default:
-                navigationVС.viewControllers = [LaunchInstructor.performRegistration()]
+            case .game:
+                navigationVС.viewControllers = [LaunchInstructor.performGame()]
             }
             window.rootViewController = navigationVС
             self.window = window
             window.makeKeyAndVisible()
         }
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-    }
-    
-    func sceneDidBecomeActive(_ scene: UIScene) {
-    }
-    
-    func sceneWillResignActive(_ scene: UIScene) {
-    }
-    
-    func sceneWillEnterForeground(_ scene: UIScene) {
-    }
-    
-    func sceneDidEnterBackground(_ scene: UIScene) {
     }
     
 }

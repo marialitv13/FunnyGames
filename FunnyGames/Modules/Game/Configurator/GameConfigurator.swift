@@ -14,9 +14,9 @@ class GameModuleConfigurator {
         let presenter = GamePresenter()
         let router = GameRouter()
         
+        view.presenter = presenter
         presenter.view = view
         presenter.router = router
-        view.presenter = presenter
         router.view = view
         router.configurator = self
         

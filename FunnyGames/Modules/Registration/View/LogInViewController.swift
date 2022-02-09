@@ -23,7 +23,6 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
     @IBOutlet weak var createButton: UIButton!
     
     var presenter: LogInPresenterProtocol?
-    var createNewGameMode: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
         switch createNewGameModeOn {
         case true:
             setupNewGameMode()
-        default:
+        case false:
             setupJoinMode()
         }
         createButton.isEnabled = false
@@ -58,9 +57,9 @@ class LogInViewController: UIViewController, LogInViewProtocol, ModuleTransition
     }
     
     @IBAction func didTapCreateButton(_ sender: UIButton) {
-        presenter?.buttonTapped(gameID: identificatorTextField.text ?? "", nickname: nicknameTextField.text ?? "")
+        presenter?.buttonTapped(gameID: identificatorTextField.text ?? "", nickname: nicknameTextField.text!)
     }
-        
+    
 }
 
 extension LogInViewController: UITextFieldDelegate {

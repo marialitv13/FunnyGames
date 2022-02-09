@@ -313,7 +313,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gameDesc" destination="Vkv-hc-htJ" id="HA3-jy-Z8o"/>
+                        <outlet property="gameDescLabel" destination="Vkv-hc-htJ" id="teF-Rs-H49"/>
                         <outlet property="gameIDLabel" destination="GeU-Q5-B4d" id="I6k-07-fvs"/>
                         <outlet property="gameMembersTableView" destination="ha0-HL-P0w" id="vtj-m5-UJJ"/>
                         <outlet property="startButton" destination="bN2-ig-9er" id="uph-q2-nze"/>

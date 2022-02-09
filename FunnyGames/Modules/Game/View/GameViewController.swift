@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 protocol GameViewProtocol: AnyObject {
     func setupInitialState()
 }

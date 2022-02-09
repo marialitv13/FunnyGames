@@ -8,10 +8,10 @@
 import UIKit
 
 class GameMemberCell: UITableViewCell {
-
+    
     @IBOutlet weak var gameMemberLabel: UILabel!
-
-    override open var frame: CGRect {
+    
+    override var frame: CGRect {
         get {
             return super.frame
         }
@@ -24,11 +24,11 @@ class GameMemberCell: UITableViewCell {
             super.frame = frame
         }
     }
-
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 15
         layer.masksToBounds = false
     }
-
+    
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GameRouterProtocol {
-    var view: ModuleTransitionable? { get set }
+    var view: ModuleTransitionable? { get }
 }
 
 class GameRouter: GameRouterProtocol {

@@ -14,21 +14,20 @@ protocol PregamePresenterProtocol {
 }
 
 class PregamePresenter: PregamePresenterProtocol {
-   
+    
     weak var view: PregameViewProtocol?
     var router: PregameRouterProtocol?
-    let database = Firestore.firestore()
     var gameCreatorModeOn: Bool?
-    let apiManager = APIManager.shared
+    private let database = Firestore.firestore()
     
     func viewLoaded() {
-        guard let gameID = UserDefaultsManager.getData(type: String.self, forKey: .gameID) else { return }
+        guard let gameID = UserDefaultsManager.getData(type: String.self, for: .gameID) else { return }
         addSnapshotListeners(for: gameID)
         view?.setupInitialState(gameCreatorModeOn ?? false, gameID: gameID)
     }
     
-    func addSnapshotListeners(for gameID: String) {
-        apiManager.addSnapshotListener(for: gameID, for: APIKeys.nickname.rawValue) { result in
+    private func addSnapshotListeners(for gameID: String) {
+        APIManager().addSnapshotListener(for: gameID, for: APIKeys.nickname.rawValue) { result in
             switch result {
             case .recievedData(let data):
                 self.view?.updateView(with: data as? [String])
@@ -36,14 +35,12 @@ class PregamePresenter: PregamePresenterProtocol {
                 break
             }
         }
-        apiManager.addSnapshotListener(for: gameID, for: APIKeys.start.rawValue) { result in
+        APIManager().addSnapshotListener(for: gameID, for: APIKeys.startGame.rawValue) { result in
             switch result {
             case .recievedData(let data):
-                print("Recieved")
-                let data = data as? Bool
+                guard let data = data as? Bool else { return }
                 if data == true {
-                    print("DATA")
-                self.router?.showGameScreen()
+                    self.router?.showGameScreen()
                 }
             default:
                 break
@@ -52,8 +49,8 @@ class PregamePresenter: PregamePresenterProtocol {
     }
     
     func startButtonTapped() {
-        guard let gameID = UserDefaultsManager.getData(type: String.self, forKey: .gameID) else { return }
-        APIManager.shared.startGame(gameID: gameID) { result in
+        guard let gameID = UserDefaultsManager.getData(type: String.self, for: .gameID) else { return }
+        APIManager().startGame(gameID: gameID) { result in
             switch result {
             case .success:
                 self.router?.showGameScreen()

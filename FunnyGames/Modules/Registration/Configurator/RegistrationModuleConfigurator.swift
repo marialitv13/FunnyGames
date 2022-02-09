@@ -14,9 +14,9 @@ class RegistrationModuleConfigurator {
         let presenter = RegistrationPresenter()
         let router = RegistrationRouter()
         
+        view.presenter = presenter
         presenter.view = view
         presenter.router = router
-        view.presenter = presenter
         router.view = view
         router.configurator = self
         
@@ -28,10 +28,10 @@ class RegistrationModuleConfigurator {
         let presenter = LogInPresenter()
         let router = LogInRouter()
 
+        view.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.createNewGameModeOn = createNewGameModeOn
-        view.presenter = presenter
         router.view = view
         router.configurator = self
         
@@ -43,10 +43,10 @@ class RegistrationModuleConfigurator {
         let presenter = PregamePresenter()
         let router = PregameRouter()
 
+        view.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.gameCreatorModeOn = gameCreatorModeOn
-        view.presenter = presenter
         router.view = view
         router.configurator = self
         

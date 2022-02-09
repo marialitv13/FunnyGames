@@ -11,7 +11,7 @@ enum LaunchInstructor {
     case registration, game
     
     static func setupInitialPage() -> LaunchInstructor {
-        switch SessionManager.isAuthorized {
+        switch UserDefaultsManager.getData(type: Bool.self, for: .isAuthorized) {
         case true:
             return .game
         default:
@@ -19,12 +19,12 @@ enum LaunchInstructor {
         }
     }
     
-    static func performRegistration() -> RegistrationViewController {
-        return RegistrationModuleConfigurator().configureRegistrationSceen()
-    }
-    
     static func performGame() -> GameViewController {
         return GameModuleConfigurator().configureGameSceen()
+    }
+    
+    static func performRegistration() -> RegistrationViewController {
+        return RegistrationModuleConfigurator().configureRegistrationSceen()
     }
     
 }

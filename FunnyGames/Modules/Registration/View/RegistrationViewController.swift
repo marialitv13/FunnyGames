@@ -18,10 +18,10 @@ class RegistrationViewController: UIViewController, RegistrationViewProtocol, Mo
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewLoaded()
-        navigationController?.isToolbarHidden = true
     }
     
     func setupInitialState() {
+        navigationController?.isToolbarHidden = true
     }
     
     @IBAction func didTapJoinButton(_ sender: UIButton) {

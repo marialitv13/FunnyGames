@@ -8,8 +8,8 @@
 import Foundation
 
 protocol PregameRouterProtocol {
-    var view: ModuleTransitionable? { get set }
-    func showGameScreen() 
+    var view: ModuleTransitionable? { get }
+    func showGameScreen()
 }
 
 class PregameRouter: PregameRouterProtocol {

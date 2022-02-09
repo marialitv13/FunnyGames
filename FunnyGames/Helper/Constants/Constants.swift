@@ -11,3 +11,7 @@ enum Storyboards: String {
     case registration = "Registration"
     case game = "Game"
 }
+
+enum Cells: String {
+    case gameMemberID = "GameMemberCell"
+}

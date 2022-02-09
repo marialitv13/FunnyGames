@@ -7,25 +7,20 @@
 
 import Foundation
 
-enum UserDefaultKeys: String, CaseIterable {
- case gameID
- case nickname
-}
-
 class UserDefaultsManager {
     
-    static func setData<T>(value: T, key: UserDefaultKeys) {
+    static func setData<T>(value: T, for key: UserDefaultKeys) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key.rawValue)
     }
     
-    static func getData<T>(type: T.Type, forKey: UserDefaultKeys) -> T? {
+    static func getData<T>(type: T.Type, for key: UserDefaultKeys) -> T? {
         let defaults = UserDefaults.standard
-        let value = defaults.object(forKey: forKey.rawValue) as? T
+        let value = defaults.object(forKey: key.rawValue) as? T
         return value
     }
     
-    static func removeData(key: UserDefaultKeys) {
+    static func removeData(for key: UserDefaultKeys) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: key.rawValue)
     }

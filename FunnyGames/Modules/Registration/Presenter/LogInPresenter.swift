@@ -13,12 +13,11 @@ protocol LogInPresenterProtocol {
 }
 
 class LogInPresenter: LogInPresenterProtocol {
-
+    
     weak var view: LogInViewProtocol?
     var router: LogInRouterProtocol?
     var createNewGameModeOn: Bool?
-    let defaultAlert = NSLocalizedString("DefaultAlertTitle", comment: "")
-    let apiManager = APIManager.shared
+    private let defaultAlert = NSLocalizedString("DefaultAlertTitle", comment: "")
     
     func viewLoaded() {
         view?.setupInitialState(createNewGameModeOn ?? false)
@@ -29,38 +28,34 @@ class LogInPresenter: LogInPresenterProtocol {
         case true:
             createNewGame(gameID: gameID, nickname: nickname)
         default:
-            addNewMemberToExistingGame(gameID: gameID, nickname: nickname)
+            addNewMember(for: gameID, nickname: nickname)
         }
     }
     
     private func createNewGame(gameID: String?, nickname: String) {
-        let gameID = createGameIDIfNeeded(from: gameID)
-        apiManager.addNewGame(gameID: gameID, nickName: nickname) { result in
+        let gameID = generateGameIDIfNeeded(from: gameID)
+        APIManager().createNewGame(gameID: gameID, nickName: nickname) { result in
             switch result {
             case .success:
-                UserDefaultsManager.setData(value: nickname, key: .nickname)
-                UserDefaultsManager.setData(value: gameID, key: .gameID)
+                self.saveDataToUserDefaults(gameID, nickname)
                 self.router?.showPregameScreen(gameCreatorModeOn: true)
-            case .failure:
-                self.view?.showErrorAlert(alertTitle: self.defaultAlert)
             default:
-                break
+                self.view?.showErrorAlert(alertTitle: self.defaultAlert)
             }
         }
     }
     
-    private func addNewMemberToExistingGame(gameID: String?, nickname: String) {
-        apiManager.addNewMemberToExistingGame(gameID: gameID, nickname: nickname) { result in
+    private func addNewMember(for gameID: String?, nickname: String) {
+        APIManager().addNewMember(for: gameID, nickname: nickname) { result in
             switch result {
             case .success:
+                self.saveDataToUserDefaults(gameID!, nickname)
                 self.router?.showPregameScreen(gameCreatorModeOn: false)
             case .failure(let errorMessage):
                 if errorMessage == .unknown {
                     self.view?.showErrorAlert(alertTitle: self.defaultAlert)
-                } else if errorMessage == .wrongId {
+                } else {
                     self.view?.showErrorAlert(alertTitle: NSLocalizedString("WrongIDAlertTitle", comment: ""))
-                } else if errorMessage == .tooManyMembers {
-                    self.view?.showErrorAlert(alertTitle: NSLocalizedString("TooManyMembersAlertTitle", comment: ""))
                 }
             default:
                 break
@@ -68,12 +63,18 @@ class LogInPresenter: LogInPresenterProtocol {
         }
     }
     
-    private func createGameIDIfNeeded(from gameID: String?) -> String {
+    private func generateGameIDIfNeeded(from gameID: String?) -> String {
         if gameID == nil {
             return String.random()
         } else {
             return gameID!
         }
+    }
+    
+    private func saveDataToUserDefaults(_ gameID: String, _ nickname: String) {
+        UserDefaultsManager.setData(value: gameID, for: .gameID)
+        UserDefaultsManager.setData(value: nickname, for: .nickname)
+        UserDefaultsManager.setData(value: true, for: .isAuthorized)
     }
     
 }
